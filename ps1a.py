@@ -93,9 +93,10 @@ def greedy_cow_transport(cows,limit=10):
                         cowsSorted.remove(j)
 
     return output
-o=greedy_cow_transport(p)
-print(o)
+#o=greedy_cow_transport(p)
+#print(o)
 # Problem 3
+
 def brute_force_cow_transport(cows,limit=10):
     """
     Finds the allocation of cows that minimizes the number of spaceship trips
@@ -118,8 +119,35 @@ def brute_force_cow_transport(cows,limit=10):
     trips
     """
     # TODO: Your code here
-    pass
+    output = []
+    worstcase = len(cows)
+    print(worstcase)
+    for i in (get_partitions(cows)):
+        weight = 0
+        for j in i:
+            tempw=0
+            for p in j:
+                tempw += cows[p]
+                if tempw > weight:
+                    weight = tempw
+
+        if weight <= limit:
+            if len(i) < worstcase:
+                output=[]
+                worstcase = len(i)
+                output.append(i)
+            elif len(i) == worstcase:
+                output.append(i)
+    return output
+                 
         
+
+
+
+v=brute_force_cow_transport(p,limit)  
+print(v) 
+
+       
 # Problem 4
 def compare_cow_transport_algorithms():
     """
