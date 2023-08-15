@@ -144,7 +144,7 @@ def brute_force_cow_transport(cows,limit=10):
 
 
 
-v=brute_force_cow_transport(p,limit)  
+v=brute_force_cow_transport(p)  
 print(v) 
 
        
